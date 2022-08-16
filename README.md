@@ -4,5 +4,5 @@ GUI that allows user to merge pdf and move and delete pages using tkinter and Py
 Use pyinstaller to convert code to exe application
 
 ```
-pyinstaller.exe --onefile Editor.py
+pyinstaller.exe --onefile --noconsole Editor.py
 ```
