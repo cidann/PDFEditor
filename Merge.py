@@ -1,4 +1,3 @@
-
 from PyPDF2 import PdfFileReader,PdfMerger,PdfWriter,PageObject
 import tkinter as tk
 from tkinter.filedialog import askopenfilename,asksaveasfilename
@@ -9,12 +8,12 @@ pdfs=[]
 def addFile(root):
     """Open a file for editing."""
     filepath =askopenfilename(
-        filetypes=[("PDF Files", "*.pdf")]
+        filetypes=[("PDF Files", "*.pdf"), ("PDF Files", "*.PDF")]
     )
     if not filepath:
         return
     paths.append(filepath)
-    pdfs.append(fileFrame(root,filepath))
+    pdfs.append(FileFrame(root,filepath))
 
 def removePDF(pdf):
     paths.remove(pdf.path)
@@ -40,7 +39,7 @@ def mergeFile():
         removePDF(pdfs[0])
 
 
-class mergeFrame():
+class MergeFrame():
     def __init__(self,root):
         self.frame=tk.Frame(root,relief=tk.RAISED,bd=2)
         self.buttonFrame=tk.Frame(self.frame)
@@ -60,7 +59,8 @@ class mergeFrame():
 
 
 
-class fileFrame():
+
+class FileFrame():
     def __init__(self,root,path):
         self.path=path
         self.frame=tk.Frame(root.pdfFiles,relief=tk.RAISED,bd=2)
